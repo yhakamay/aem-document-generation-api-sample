@@ -14,24 +14,25 @@
  |  See the License for the specific language governing permissions and
  |  limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.adobe.aem.guides</groupId>
     <artifactId>aem-guides-wknd</artifactId>
     <packaging>pom</packaging>
     <version>2.0.1-SNAPSHOT</version>
-     <name>WKND Sites Project - Reactor Project</name>
+    <name>WKND Sites Project - Reactor Project</name>
     <description>WKND Sites Project</description>
     <url>https://github.com/adobe/aem-guides-wknd</url>
     <inceptionYear>2019</inceptionYear>
-
     <licenses>
-		<license>
-			<name>MIT License</name>
-			<url>http://www.opensource.org/licenses/mit-license.php</url>
-		</license>
-	</licenses>
-
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
     <modules>
         <module>all</module>
         <module>core</module>
@@ -45,7 +46,6 @@
         <module>dispatcher</module>
         <module>ui.tests</module>
     </modules>
-
     <properties>
         <aem.host>localhost</aem.host>
         <aem.port>4502</aem.port>
@@ -65,13 +65,11 @@
         <wknd-shared.version>2.0.0</wknd-shared.version>
         <aemanalyser.version>1.4.10</aemanalyser.version>
     </properties>
-
     <organization>
         <name>Adobe</name>
         <url>http://www.adobe.com/</url>
     </organization>
-
-     <developers>
+    <developers>
         <developer>
             <id>aem-guides-wknd</id>
             <organization>Adobe</organization>
@@ -79,14 +77,12 @@
             <url>https://docs.adobe.com/content/help/en/experience-manager-learn/getting-started-wknd-tutorial-develop/overview.html</url>
         </developer>
     </developers>
-
-     <scm>
+    <scm>
         <connection>scm:git:https://github.com/adobe/aem-guides-wknd.git</connection>
         <developerConnection>scm:git:https://github.com/adobe/aem-guides-wknd.git</developerConnection>
         <url>https://github.com/adobe/aem-guides-wknd/tree/main</url>
         <tag>HEAD</tag>
     </scm>
-
     <build>
         <plugins>
             <!-- Maven Release Plugin -->
@@ -107,6 +103,11 @@
                         <artifactId>maven-release-oddeven-policy</artifactId>
                         <version>3.0.0-M5</version>
                     </dependency>
+                    <dependency>
+                        <groupId>com.adobe.documentservices</groupId>
+                        <artifactId>pdfservices-sdk</artifactId>
+                        <version>2.2.2</version>
+                    </dependency>
                 </dependencies>
             </plugin>
             <!-- Maven Source Plugin -->
@@ -126,10 +127,10 @@
                 </configuration>
                 <executions>
                     <execution>
-                    <id>attach-javadocs</id>
-                    <goals>
-                        <goal>jar</goal>
-                    </goals>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
@@ -398,15 +399,9 @@ Bundle-DocURL:
                                 </pluginExecution>
                                 <pluginExecution>
                                     <pluginExecutionFilter>
-                                        <groupId>
-                                            org.apache.maven.plugins
-                                        </groupId>
-                                        <artifactId>
-                                            maven-dependency-plugin
-                                        </artifactId>
-                                        <versionRange>
-                                            [2.2,)
-                                        </versionRange>
+                                        <groupId> org.apache.maven.plugins </groupId>
+                                        <artifactId> maven-dependency-plugin </artifactId>
+                                        <versionRange> [2.2,) </versionRange>
                                         <goals>
                                             <goal>copy-dependencies</goal>
                                             <goal>unpack</goal>
@@ -418,19 +413,11 @@ Bundle-DocURL:
                                 </pluginExecution>
                                 <pluginExecution>
                                     <pluginExecutionFilter>
-                                        <groupId>
-                                            org.codehaus.mojo
-                                        </groupId>
-                                        <artifactId>
-                                            build-helper-maven-plugin
-                                        </artifactId>
-                                        <versionRange>
-                                            [1.5,)
-                                        </versionRange>
+                                        <groupId> org.codehaus.mojo </groupId>
+                                        <artifactId> build-helper-maven-plugin </artifactId>
+                                        <versionRange> [1.5,) </versionRange>
                                         <goals>
-                                            <goal>
-                                                reserve-network-port
-                                            </goal>
+                                            <goal> reserve-network-port </goal>
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
@@ -444,24 +431,20 @@ Bundle-DocURL:
             </plugins>
         </pluginManagement>
     </build>
-
     <profiles>
         <!-- ====================================================== -->
         <!-- A D O B E P U B L I C P R O F I L E -->
         <!-- ====================================================== -->
         <profile>
             <id>adobe-public</id>
-
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-
             <properties>
                 <releaseRepository-Id>adobe-public-releases</releaseRepository-Id>
                 <releaseRepository-Name>Adobe Public Releases</releaseRepository-Name>
                 <releaseRepository-URL>https://repo.adobe.com/nexus/content/groups/public</releaseRepository-URL>
             </properties>
-
             <repositories>
                 <repository>
                     <id>adobe-public-releases</id>
@@ -476,7 +459,6 @@ Bundle-DocURL:
                     </snapshots>
                 </repository>
             </repositories>
-
             <pluginRepositories>
                 <pluginRepository>
                     <id>adobe-public-releases</id>
@@ -527,7 +509,6 @@ Bundle-DocURL:
                 </pluginManagement>
             </build>
         </profile>
-
         <profile>
             <id>autoInstallPackage</id>
             <activation>
@@ -567,7 +548,6 @@ Bundle-DocURL:
                 </pluginManagement>
             </build>
         </profile>
-
         <profile>
             <id>autoInstallPackagePublish</id>
             <activation>
@@ -679,9 +659,9 @@ Bundle-DocURL:
         <profile>
             <id>cm-java-11</id>
             <activation>
-                  <property>
-                        <name>env.CM_BUILD</name>
-                  </property>
+                <property>
+                    <name>env.CM_BUILD</name>
+                </property>
             </activation>
             <build>
                 <plugins>
@@ -799,7 +779,6 @@ Bundle-DocURL:
             </dependency>
         </dependencies>
     </dependencyManagement>
-
     <distributionManagement>
         <repository>
             <id>${releaseRepository-Id}</id>

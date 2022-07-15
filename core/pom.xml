@@ -14,7 +14,10 @@
  |  See the License for the specific language governing permissions and
  |  limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.adobe.aem.guides</groupId>
@@ -76,9 +79,29 @@ Import-Package: javax.annotation;version=0.0.0,*
                     </archive>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>bnd-process</id>
+                        <goals>
+                            <goal>bnd-process</goal>
+                        </goals>
+                        <configuration>
+                            <bnd>
+                                <![CDATA[
+                                    Import-Package: javax.annotation;version=0.0.0,*
+                                    -includeresource: pdfservices-sdk-[0-9]*.jar;
+                                    lib:=true
+                                ]]>
+                            </bnd>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
-
     <dependencies>
         <!-- Core Component Dependency -->
         <dependency>
@@ -134,6 +157,11 @@ Import-Package: javax.annotation;version=0.0.0,*
             <version>1.4.4</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.adobe.documentservices</groupId>
+            <artifactId>pdfservices-sdk</artifactId>
+            <version>2.2.2</version>
+        </dependency>
     </dependencies>
 
       <!-- Additional Profiles for Cloud Service vs. 6.x -->
@@ -152,8 +180,7 @@ Import-Package: javax.annotation;version=0.0.0,*
         </profile>
         <profile>
             <id>classic</id>
-
-             <build>
+            <build>
                 <plugins>
                     <plugin>
                        <!--================
@@ -178,10 +205,9 @@ Import-Package: javax.annotation;version=0.0.0,*
                     </plugin>
                 </plugins>
             </build>
-
             <dependencies>
                 <!--================
-                AEM 6.x Dependencies 
+                AEM 6.x Dependencies
                 ====================-->
                 <!-- Adobe AEM Dependencies -->
                 <dependency>
@@ -296,7 +322,6 @@ Import-Package: javax.annotation;version=0.0.0,*
                     <version>2.1</version>
                     <scope>provided</scope>
                 </dependency>
-
                 <dependency>
                     <groupId>javax.annotation</groupId>
                     <artifactId>javax.annotation-api</artifactId>

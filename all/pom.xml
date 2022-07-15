@@ -13,7 +13,10 @@
  |  See the License for the specific language governing permissions and
  |  limitations under the License.
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <!-- ====================================================================== -->
@@ -90,6 +93,11 @@
                             <type>zip</type>
                             <target>/apps/wknd-vendor-packages/content/install</target>
                         </embedded>
+                        <embeded>
+                            <groupId>com.adobe.documentservicess</groupId>
+                            <artifactId>pdfservices-sdk</artifactId>
+                            <target>/apps/product-packages/application/install</target>
+                        </embeded>
                     </embeddeds>
                 </configuration>
             </plugin>
@@ -123,7 +131,7 @@
                         <id>analyse-project</id>
                         <phase>verify</phase>
                         <goals>
-                            <goal>project-analyse</goal>                           
+                            <goal>project-analyse</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -253,13 +261,13 @@
                                     <artifactId>aem-guides-wknd-shared.ui.content</artifactId>
                                     <type>zip</type>
                                     <target>/apps/wknd-vendor-packages/content/install</target>
-                                </embedded>                           
+                                </embedded>
                             </embeddeds>
                         </configuration>
                     </plugin>
-            </plugins>
+                </plugins>
             </build>
-         </profile>
+        </profile>
     </profiles>
 
     <!-- ====================================================================== -->
@@ -303,13 +311,13 @@
         </dependency>
         <dependency>
             <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.core</artifactId>                
+            <artifactId>core.wcm.components.core</artifactId>
         </dependency>
         <!-- WKND Shared -->
         <dependency>
             <groupId>com.adobe.aem.guides</groupId>
             <artifactId>aem-guides-wknd-shared.ui.content</artifactId>
             <type>zip</type>
-        </dependency>        
+        </dependency>
     </dependencies>
 </project>
