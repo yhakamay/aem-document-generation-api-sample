@@ -93,11 +93,11 @@
                             <type>zip</type>
                             <target>/apps/wknd-vendor-packages/content/install</target>
                         </embedded>
-                        <embeded>
-                            <groupId>com.adobe.documentservicess</groupId>
+                        <embedded>
+                            <groupId>com.adobe.documentservices</groupId>
                             <artifactId>pdfservices-sdk</artifactId>
-                            <target>/apps/product-packages/application/install</target>
-                        </embeded>
+                            <target>/apps/wknd-vendor-packages/application/install</target>
+                        </embedded>
                     </embeddeds>
                 </configuration>
             </plugin>

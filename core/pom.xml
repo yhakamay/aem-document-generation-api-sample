@@ -92,7 +92,7 @@ Import-Package: javax.annotation;version=0.0.0,*
                             <bnd>
                                 <![CDATA[
                                     Import-Package: javax.annotation;version=0.0.0,*
-                                    -includeresource: pdfservices-sdk-[0-9]*.jar;
+                                    -includeresource: pdfservices-sdk-[0-9.]*.jar;
                                     lib:=true
                                 ]]>
                             </bnd>
